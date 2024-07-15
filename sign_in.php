@@ -22,48 +22,32 @@ else{
 
 
 <?php */
+
+
 require_once "Files/function.php";
 
-
+session_start(); // Start session if not already started
 // Initialize variables
-$email = '';
-$password = '';
+/* $email = '';
+$password = ''; */
 
 // function for login
-function login_user($email,$password){
-    global $conn;
-   /*  $sql = "SELECT*FROM users WHERE email ='$email' ";
-    $res = $conn->query($sql); */
-    $sql = "SELECT * FROM users WHERE email = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-if($result->num_rows<1){
-    return false;
-}
-$row=$result->fetch_assoc();
-if (!password_verify($password,$row['password'])){
-    return false;
-}
-   $_SESSION ['user']=$row;
-   return true;
-}  
+
 
 
 if (isset($_POST['Sign_in'])) {
     if (!empty($_POST['email']) && !empty($_POST['password'])) {
-        $email_2 = trim($_POST['email']);
-        $password_2 = trim($_POST['password']);
+        $email_2= trim($_POST['email']);
+        $password_2= trim($_POST['password']);
     }
 }
 
-if (!empty($email_2) && !empty($password_2)) {
-    if (login_user($email, $password)) {
+    if (login_user($email_2, $password_2)) {
         die('Successfully Logged in');
     } else {
         die('Failed to login, Check: Email or password is wrong');
     }
-}/*  else {
+/*  else {
     die('Please enter both email and password');
 } */
+

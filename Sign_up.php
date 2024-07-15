@@ -15,11 +15,11 @@ require_once("Files/header.php");
                 <h3 class="fs-base pt-4 pb-2">Or using form below</h3>
                 <form method="post" action="sign_in.php" class="needs-validation" novalidate>
                   <div class="input-group mb-3"><i class="ci-mail position-absolute top-50 translate-middle-y text-muted fs-base ms-3"></i>
-                    <input class="form-control rounded-start" name="email_2" type="email" placeholder="Email" required>
+                    <input class="form-control rounded-start" name="email" type="email" placeholder="Email" required>
                   </div>
                   <div class="input-group mb-3"><i class="ci-locked position-absolute top-50 translate-middle-y text-muted fs-base ms-3"></i>
                     <div class="password-toggle w-100">
-                      <input class="form-control" name="password_2" type="password" placeholder="Password" required>
+                      <input class="form-control" name="password" type="password" placeholder="Password" required>
                       <label class="password-toggle-btn" aria-label="Show/hide password">
                         <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
                       </label>

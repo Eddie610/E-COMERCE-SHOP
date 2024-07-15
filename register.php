@@ -25,7 +25,10 @@ if (isset($_POST['Signup'])) {
         if ($result->num_rows > 0) {
             die("User email already exists");
         }
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        // Store $hashed_password in the database
 
+        //$password= password_hash($password,PASSWORD_DEFAULT);
         // Insert new user into the database
         $sql = "INSERT INTO users (first_name, last_name, email, phone_number, password) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
@@ -34,11 +37,11 @@ if (isset($_POST['Signup'])) {
 
         
         if ($stmt->execute()) {
-            echo "Account created successfully";
+            //die("Account created successfully");
             
             
            // header('Location: account_orders.php');
-            header('Location: sign_in.php');
+            header('Location: sign_up.php');
             exit(); // make sure to stop execution after redirection
         } 
     }
